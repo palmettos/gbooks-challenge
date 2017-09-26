@@ -36,18 +36,27 @@ function showError(msg, error) {
 // Searches for books and returns a promise that resolves a JSON list
 function searchForBooks(query) {
     origQuery = query;
+
     searchBar.value = null;
     query = `${encodeURIComponent(query.replace(/\s+/g, ' '))
         .replace(/%20/g, '+').replace(/\+$|^\+/, '')}`;
     if (!query || query == '') return showError('Please enter a search term.');
 
     errorDiv.style.visibility = 'hidden';
+    let queryDiv = document.createElement('div');
+    queryDiv.className = 'query-string';
+    queryDiv.innerHTML = `&darr;${origQuery}&darr;`;
+
+    let queryHeader = document.createElement('li');
+    queryHeader.className = 'query';
+    queryHeader.appendChild(queryDiv);
+    results.insertBefore(queryHeader, results.firstChild);
 
     fetch(`${endpoint}?q=${query}&key=${apiKey}`)
         .then(response => response.json())
         .then(json => {
             if (json.totalItems > 0) {
-                render(bookSet.difference(json.items), origQuery);
+                render(bookSet.difference(json.items), origQuery, queryHeader);
             } else {
                 showError('No matches found.');
             }
@@ -56,7 +65,7 @@ function searchForBooks(query) {
 }
 
 // Generate HTML and sets #results's contents to it
-function render(newBooks, query) {
+function render(newBooks, query, anchor) {
     for (var bk in newBooks) {
         let coverImage = document.createElement('img');
         coverImage.className = 'cover-img';
@@ -110,15 +119,6 @@ function render(newBooks, query) {
         let result = document.createElement('li');
         result.className = 'result';
         result.appendChild(resultContents);
-        results.insertBefore(result, results.firstChild);
+        results.insertBefore(result, anchor.nextSibling);
     }
-
-    let queryDiv = document.createElement('div');
-    queryDiv.className = 'query-string';
-    queryDiv.innerHTML = `&darr;${query}&darr;`;
-
-    let queryHeader = document.createElement('li');
-    queryHeader.className = 'query';
-    queryHeader.appendChild(queryDiv);
-    results.insertBefore(queryHeader, results.firstChild);
 }
