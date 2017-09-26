@@ -56,7 +56,7 @@ function searchForBooks(query) {
         .then(response => response.json())
         .then(json => {
             if (json.totalItems > 0) {
-                render(bookSet.difference(json.items), origQuery, queryHeader);
+                render(bookSet.difference(json.items), queryHeader);
             } else {
                 showError('No matches found.');
             }
@@ -65,7 +65,7 @@ function searchForBooks(query) {
 }
 
 // Generate HTML and sets #results's contents to it
-function render(newBooks, query, anchor) {
+function render(newBooks, anchor) {
     for (var bk in newBooks) {
         let coverImage = document.createElement('img');
         coverImage.className = 'cover-img';
