@@ -82,7 +82,7 @@ function render(newBooks, query) {
         if (newBooks[bk].volumeInfo.authors) {
             authors = document.createElement('p');
             authors.className = 'authors';
-            authors.innerHtml = 'By ';
+            authors.innerHTML = 'By ';
             let authorCount = newBooks[bk].volumeInfo.authors.length;
             for (var i = 0; i < authorCount; i++) {
                 let pos = i + 1;
