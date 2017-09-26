@@ -37,7 +37,7 @@ function showError(msg, error) {
 function searchForBooks(query) {
     origQuery = query;
     searchBar.value = null;
-    query = `${encodeURIComponent(query.replace(/\s{2,}/g, ' '))
+    query = `${encodeURIComponent(query.replace(/\s+/g, ' '))
         .replace(/%20/g, '+').replace(/\+$|^\+/, '')}`;
     if (!query || query == '') return showError('Please enter a search term.');
 
