@@ -114,7 +114,11 @@ function render(newBooks, query) {
     }
 
     let queryDiv = document.createElement('div');
-    queryDiv.className = 'query';
+    queryDiv.className = 'query-string';
     queryDiv.innerHTML = `&darr;${query}&darr;`;
-    results.insertBefore(queryDiv, results.firstChild);
+
+    let queryHeader = document.createElement('li');
+    queryHeader.className = 'query';
+    queryHeader.appendChild(queryDiv);
+    results.insertBefore(queryHeader, results.firstChild);
 }
