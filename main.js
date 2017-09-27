@@ -77,8 +77,9 @@ function render(newBooks, anchor) {
 
         let title = document.createElement('a');
         title.className = 'title';
-        title.href = `${newBooks[bk].accessInfo.webReaderLink}`;
+        title.href = `${newBooks[bk].volumeInfo.previewLink}`;
         title.target = '_blank';
+        coverImage.appendChild(title);
         title.innerHTML = newBooks[bk].volumeInfo.title;
 
         let subtitle = null;
