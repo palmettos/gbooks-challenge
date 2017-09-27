@@ -4,19 +4,23 @@
         <!-- fetch polyfill if your browser doesn't support fetch -->
         <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js"></script> -->
         <link rel="stylesheet" href="styles.css">
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
-        <div id="search-area">
-            <input id="search-bar" type="text" placeholder="Search...">
-            <button id="search-btn">Search</button>
+        <div id="container">
+            <div id="search-area">
+                <input id="search-bar" type="text" placeholder="Search...">
+                <button id="search-btn">Search</button>
+            </div>
+            <div id="results-area">
+                <div id="error"></div>
+                <ul id="results"></ul>
+            </div>
+            <script src="main.js"></script>
+            <!-- for babel transpilation -->
+            <!-- <script src="main.min.js"></script> -->
         </div>
-        <div id="results-area">
-            <div id="error"></div>
-            <ul id="results"></ul>
-        </div>
-        <script src="main.js"></script>
-        <!-- for babel transpilation -->
-        <!-- <script src="main.min.js"></script> -->
     </body>
 </html>

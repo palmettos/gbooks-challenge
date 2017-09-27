@@ -1,3 +1,139 @@
-.error {
-    color: red;
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+#search-area {
+    display: block;
+    width: 60%;
+    margin: auto;
+}
+
+#search-bar {
+    border-radius: 3px;
+    display: inline;
+    float: left;
+    width: 60%;
+    margin: 0;
+    padding: 5px;
+}
+
+#search-btn {
+    border-radius: 3px;
+    display: inline;
+    width: 35%;
+    margin-left: 5px;
+    padding: 5px;
+    overflow: hidden;
+}
+
+#results {
+    list-style: none;
+    margin-top: 5%;
+    padding: 0;
+}
+
+.query {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 1%;
+    border-bottom: 2px solid #cccccc;
+}
+
+.result {
+    padding-top: 2.5%;
+    padding-bottom: 2.5%;
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+    border-bottom: 1px solid #aaaaaa;
+    border-radius: 7px;
+}
+
+.query, .result {
+    -webkit-animation: fadein 1s;
+    -moz-animation: fadein 0.5s;
+    -ms-animation: fadein 0.5s;
+    -o-animation: fadein 0.5s;
+    animation: fadein 0.5s;
+}
+
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.result-contents::after {
+    content: "";
+    clear: both;
+    display: table;
+    margin: auto;
+}
+
+.result-contents-image {
+    display: block;
+    margin: auto;
+}
+
+.cover-img {
+    text-align: center;
+    display: block;
+    margin: auto;
+    margin-bottom: 3%;
+    padding: 2px;
+    border: 1px solid #aaaaaa;
+    box-shadow: 5px 5px 5px #aaaaaa;
+}
+
+.result-contents-info {
+    overflow: auto;
+    display: block;
+}
+
+.title, .subtitle, .authors {
+    text-align: center;
+    display: block;
+    margin: auto;
+}
+
+@media screen and (min-width: 800px) {
+
+    #container {
+        margin: auto;
+        max-width: 800px;
+    }
+
+    .result {
+        padding-top: 1%;
+    }
+
+    .cover-img {
+        margin: 1%;
+        padding: 2px;
+        float: left;
+        border: 1px solid #aaaaaa;
+        box-shadow: 5px 5px 5px #aaaaaa;
+    }
 }

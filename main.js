@@ -1,5 +1,4 @@
 class BookSet {
-
     constructor() {
         this.set = new Set();
     }
@@ -35,7 +34,7 @@ function showError(msg, error) {
 
 // Searches for books and returns a promise that resolves a JSON list
 function searchForBooks(query) {
-    origQuery = query;
+    let origQuery = query;
 
     searchBar.value = null;
     query = `${encodeURIComponent(query.replace(/\s+/g, ' '))
@@ -45,7 +44,7 @@ function searchForBooks(query) {
     errorDiv.style.visibility = 'hidden';
     let queryDiv = document.createElement('div');
     queryDiv.className = 'query-string';
-    queryDiv.innerHTML = `&darr;${origQuery}&darr;`;
+    queryDiv.innerHTML = `Results for '${origQuery}'...`;
 
     let queryHeader = document.createElement('li');
     queryHeader.className = 'query';
@@ -76,8 +75,10 @@ function render(newBooks, anchor) {
         }
         coverImage.alt = 'No cover available.';
 
-        let title = document.createElement('p');
+        let title = document.createElement('a');
         title.className = 'title';
+        title.href = `${newBooks[bk].accessInfo.webReaderLink}`;
+        title.target = '_blank';
         title.innerHTML = newBooks[bk].volumeInfo.title;
 
         let subtitle = null;
@@ -101,20 +102,21 @@ function render(newBooks, anchor) {
             }
         }
 
-        let viewBtn = document.createElement('input');
-        viewBtn.setAttribute('type', 'button');
-        let action = `window.open('${newBooks[bk].accessInfo.webReaderLink}')`;
-        viewBtn.setAttribute('onclick', action);
-        viewBtn.value = 'View';
-        viewBtn.class = 'view-btn';
-
         let resultContents = document.createElement('div');
         resultContents.className = 'result-contents';
-        coverImage && resultContents.appendChild(coverImage);
-        resultContents.appendChild(title);
-        subtitle && resultContents.appendChild(subtitle);
-        authors && resultContents.appendChild(authors);
-        resultContents.appendChild(viewBtn);
+
+        let resultContentsImage = document.createElement('div');
+        resultContentsImage.className = 'result-contents-image';
+        coverImage && resultContentsImage.appendChild(coverImage);
+
+        let resultContentsInfo = document.createElement('div');
+        resultContentsInfo.className = 'result-contents-info';
+        resultContentsInfo.appendChild(title);
+        subtitle && resultContentsInfo.appendChild(subtitle);
+        authors && resultContentsInfo.appendChild(authors);
+
+        resultContents.appendChild(resultContentsImage);
+        resultContents.appendChild(resultContentsInfo);
 
         let result = document.createElement('li');
         result.className = 'result';
