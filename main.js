@@ -72,13 +72,13 @@ function searchForBooks(query) {
                 json.items.map(bookSet.add, bookSet);
                 loading.style.display = 'none';
             } else {
-                showError(`No matches found for query '${origQuery}'.`);
                 loading.style.display = 'none';
+                showError(`No matches found for query '${origQuery}'.`);
             }
         })
         .catch(exception => {
-            showError('An error occurred.', exception)
             loading.style.display = 'none';
+            showError('An error occurred.', exception)
         });
 }
 

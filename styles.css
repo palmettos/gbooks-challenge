@@ -11,11 +11,8 @@
     text-align: center;
 }
 
-input[type="text"] {
-    font-family: 'Roboto Slab', serif;
-}
-
 #search-bar {
+    font-family: 'Roboto Slab', serif;
     padding-left: 10px;
     width: 40%;
     border-radius: 2px;
