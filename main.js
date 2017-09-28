@@ -1,4 +1,4 @@
-// Set provides O(1) insertion/retrieval and O(n) queries
+// Set provides O(1) insertion/retrieval and O(n) difference/intersection
 class BookSet {
     constructor() {
         this.set = new Set();
@@ -78,7 +78,7 @@ function searchForBooks(query) {
         })
         .catch(exception => {
             loading.style.display = 'none';
-            showError('An error occurred.', exception)
+            showError('An error occurred.', exception);
         });
 }
 
@@ -135,7 +135,7 @@ function render(newBooks, oldBooks) {
         titleContainer.appendChild(title);
         newBookResult.appendChild(titleContainer);
 
-        //  If subtitle exists, create subtitle div and add subtitle text child
+        // If subtitle exists, create subtitle div and add subtitle text child
         if (book.volumeInfo.subtitle) {
             let subtitleContainer = document.createElement('div');
             subtitleContainer.className = 'result-subtitle-container';
