@@ -1,63 +1,119 @@
-html {
-    box-sizing: border-box;
-}
+@import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab');
 
 *, *:before, *:after {
-    box-sizing: inherit;
-}
-
-#search-area {
-    display: block;
-    width: 60%;
-    margin: auto;
-}
-
-#search-bar {
-    border-radius: 3px;
-    display: inline;
-    float: left;
-    width: 60%;
+    box-sizing: border-box;
     margin: 0;
-    padding: 5px;
-}
-
-#search-btn {
-    border-radius: 3px;
-    display: inline;
-    width: 35%;
-    margin-left: 5px;
-    padding: 5px;
-    overflow: hidden;
-}
-
-#results {
-    list-style: none;
-    margin-top: 5%;
     padding: 0;
 }
 
-.query {
-    padding-top: 5px;
-    padding-bottom: 5px;
+#search-area {
+    padding: 1%;
+    text-align: center;
+}
+
+input[type="text"] {
+    font-family: 'Roboto Slab', serif;
+}
+
+#search-bar {
+    padding-left: 10px;
+    width: 40%;
+    border-radius: 2px;
+    border: 1px solid #cccccc;
+    height: 25px;
+    box-shadow: inset 0px 0px 5px 2px #eeeeee;
+}
+
+.button {
+    font-family: 'Roboto Slab', serif;
+    border-radius: 2px;
+    background-color: #eeeeee;
+    border: 1px solid #cccccc;
+    padding: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    box-shadow: inset 0px 0px 10px 2px #eeeeee;
+}
+
+#loading, #error {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.3rem;
+    text-align: center;
+    display: none;
     margin-bottom: 1%;
-    border-bottom: 2px solid #cccccc;
-}
 
-.result {
-    padding-top: 2.5%;
-    padding-bottom: 2.5%;
-    margin-top: 2.5%;
-    margin-bottom: 2.5%;
-    border-bottom: 1px solid #aaaaaa;
-    border-radius: 7px;
-}
-
-.query, .result {
-    -webkit-animation: fadein 1s;
+    -webkit-animation: fadein 0.5s;
     -moz-animation: fadein 0.5s;
     -ms-animation: fadein 0.5s;
     -o-animation: fadein 0.5s;
     animation: fadein 0.5s;
+}
+
+#error {
+    color: red;
+
+    -webkit-animation: fadein 1s;
+    -moz-animation: fadein 1s;
+    -ms-animation: fadein 1s;
+    -o-animation: fadein 1s;
+    animation: fadein 1s;
+}
+
+.result {
+    max-width: 400px;
+    overflow: hidden;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 10px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px 2px #eeeeee;
+
+    -webkit-animation: fadein 1.25s;
+    -moz-animation: fadein 1.25s;
+    -ms-animation: fadein 1.25s;
+    -o-animation: fadein 1.25s;
+    animation: fadein 1.25s;
+}
+
+.result * {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+.cover-img {
+    display: inline;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 2px;
+    border: 1px solid #aaaaaa;
+    box-shadow: 0px 0px 20px 2px #dddddd;
+}
+
+.title {
+    font-family: 'Roboto Slab', serif;
+    text-decoration: none;
+    font-size: 1.1rem;
+    width: 85%;
+    margin: auto;
+}
+
+.subtitle {
+    font-size: 1rem;
+    width: 75%;
+    margin: auto;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.authors {
+    color: #666666;
+    font-size: 0.8rem;
+    width: 60%;
+    margin: auto;
+    margin-bottom: 10px;
 }
 
 @-webkit-keyframes fadein {
@@ -85,55 +141,30 @@ html {
     to { opacity: 1; }
 }
 
-.result-contents::after {
-    content: "";
-    clear: both;
-    display: table;
-    margin: auto;
-}
-
-.result-contents-image {
-    display: block;
-    margin: auto;
-}
-
-.cover-img {
-    text-align: center;
-    display: block;
-    margin: auto;
-    margin-bottom: 3%;
-    padding: 2px;
-    border: 1px solid #aaaaaa;
-    box-shadow: 5px 5px 5px #aaaaaa;
-}
-
-.result-contents-info {
-    overflow: auto;
-    display: block;
-}
-
-.title, .subtitle, .authors {
-    text-align: center;
-    display: block;
-    margin: auto;
-}
-
-@media screen and (min-width: 800px) {
-
+@media screen and (min-width: 840px) {
     #container {
         margin: auto;
-        max-width: 800px;
+        max-width: 840px;
     }
 
     .result {
-        padding-top: 1%;
+        display: inline-block;
+        vertical-align: top;
+        width: 400px;
+        margin: 5px;
     }
+}
 
-    .cover-img {
-        margin: 1%;
-        padding: 2px;
-        float: left;
-        border: 1px solid #aaaaaa;
-        box-shadow: 5px 5px 5px #aaaaaa;
+@media screen and (min-width: 1250px) {
+    #container {
+        margin: auto;
+        max-width: 1250px;
+    }
+}
+
+@media screen and (min-width: 1660px) {
+    #container {
+        margin: auto;
+        max-width: 1660px;
     }
 }

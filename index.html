@@ -11,12 +11,13 @@
     <body>
         <div id="container">
             <div id="search-area">
-                <input id="search-bar" type="text" placeholder="Search...">
-                <button id="search-btn">Search</button>
+                <input id="search-bar" type="text" placeholder="Search for books...">
+                <button class="button" id="search-btn">Search</button>
             </div>
             <div id="results-area">
                 <div id="error"></div>
-                <ul id="results"></ul>
+                <div id="loading">Loading...</div>
+                <div id="results"></div>
             </div>
             <script src="main.js"></script>
             <!-- for babel transpilation -->
